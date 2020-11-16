@@ -81,8 +81,6 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['foo']   = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
@@ -163,5 +161,21 @@ class StarterSite extends Timber\Site {
 	}
 
 }
+
+function theme_add_woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+
+function timber_set_product( $post ) {
+	global $product;
+	
+	if ( is_woocommerce() ) {
+		$product = wc_get_product( $post->ID );
+	}
+}
+
+
+add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
+
 
 new StarterSite();
