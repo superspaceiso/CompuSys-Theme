@@ -81,9 +81,11 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
+		$context['basket_total'] = WC()->cart->cart_contents_total;
+		$context['basket_currency'] = get_woocommerce_currency_symbol();
+		$context['basket_count'] = WC()->cart->get_cart_contents_count();
 		return $context;
 	}
 
@@ -140,16 +142,7 @@ class StarterSite extends Timber\Site {
 
 		add_theme_support( 'menus' );
 	}
-
-	/** This Would return 'foo bar!'.
-	 *
-	 * @param string $text being 'foo', then returned 'foo bar!'.
-	 */
-	public function myfoo( $text ) {
-		$text .= ' bar!';
-		return $text;
-	}
-
+	
 	/** This is where you can add your own functions to twig.
 	 *
 	 * @param string $twig get extension.
@@ -177,5 +170,20 @@ function timber_set_product( $post ) {
 
 add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
 
+function wp_enqueue_woocommerce_style(){
+	wp_register_style( 'mytheme-woocommerce', get_template_directory_uri() . '/style.css' );
+	
+	if ( class_exists( 'woocommerce' ) ) {
+		wp_enqueue_style( 'mytheme-woocommerce' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
+
+add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_delimiter' );
+function wcc_change_breadcrumb_delimiter( $defaults ) {
+	// Change the breadcrumb delimeter from '/' to '>'
+	$defaults['delimiter'] = '<i class="fas fa-angle-right"></i>';
+	return $defaults;
+}
 
 new StarterSite();

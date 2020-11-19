@@ -3,3 +3,251 @@
  * Description: A theme created for a university assignment.
  * Author: Scott Cottam
 */
+body {
+  background-color: #F7F8F9;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  margin: unset;
+}
+
+.container {
+  width: 1276px;
+  margin: 0 auto;
+}
+
+.banner, footer {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.searchBar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.searchBar form {
+  width: 100%;
+}
+.searchBar input[type="text"] {
+  float: left;
+  height: 25px;
+  width: calc(100% - 120px);
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #92009C;
+  background-color: #FFFFFF;
+}
+.searchBar input[type="submit"] {
+  float: left;
+  height: 47px;
+  width: 98px;
+  padding: unset;
+  background-color: #92009C;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid #92009C;
+  font-family: inherit;
+}
+.searchBar input[type="submit"]:hover {
+  background: linear-gradient(0deg, #760080 0%, #92009c 100%);
+}
+
+.accountMenu {
+  width: 100%;
+  text-align: center;
+}
+.accountMenu i {
+  padding-right: 20px;
+  color: rgba(0, 0, 0, 0.3);
+}
+.accountMenu a {
+  display: block;
+  height: 26px;
+  padding: 10px 5px 10px 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: #FFFFFF;
+  text-decoration: none;
+  color: #000000;
+}
+.accountMenu a:hover {
+  background: rgba(118, 0, 128, 0.1);
+}
+
+.basketMenu {
+  width: 100%;
+  height: 46px;
+  font-size: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: #FFFFFF;
+  text-align: center;
+}
+.basketMenu i {
+  padding-right: 20px;
+  color: rgba(0, 0, 0, 0.3);
+}
+.basketMenu a {
+  text-decoration: none;
+}
+.basketMenu a:nth-child(1) {
+  display: inline-block;
+  float: left;
+  width: calc(100% - 100px);
+  padding: 10px 0 10px 0;
+  color: inherit;
+}
+.basketMenu a:nth-child(1):hover {
+  background: rgba(118, 0, 128, 0.1);
+}
+.basketMenu a:nth-child(2) {
+  display: inline-block;
+  float: left;
+  font-size: 16px;
+  width: 90px;
+  height: 27px;
+  padding: 10px 5px 10px 5px;
+  background-color: #01A44F;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.mainNav {
+  height: 70px;
+  background-color: #92009C;
+  font-size: 18px;
+}
+.mainNav ul {
+  display: inline-flex;
+  list-style: none;
+  margin: unset;
+  padding: unset;
+}
+.mainNav li {
+  height: 50px;
+  padding: 20px 20px 0 20px;
+}
+.mainNav li:hover {
+  background: linear-gradient(0deg, #760080 0%, #92009c 100%);
+}
+.mainNav a {
+  color: #FFFFFF;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.mainNav .thing {
+  display: none;
+  position: absolute;
+  background-color: #92009C;
+  width: 500px;
+}
+.mainNav ul ul {
+  display: list-item;
+}
+
+.banner {
+  height: 450px;
+}
+
+.header {
+  height: 125px;
+  padding-top: 75px;
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-template-rows: 1fr;
+  column-gap: 20px;
+}
+.header > div:nth-child(1) {
+  grid-column: col-start / span 3;
+}
+.header > div:nth-child(2) {
+  grid-column: col-start 4 / span 4;
+}
+.header > div:nth-child(3) {
+  grid-column: col-start 8 / span 2;
+}
+.header > div:nth-child(4) {
+  grid-column: col-start 10 / span 3;
+}
+
+.footerBannerWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.footerBanner {
+  height: 200px;
+  background-color: #92009C;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.footerBannerTop {
+  height: 50px;
+  padding-top: 20px;
+  border-bottom: 1px solid #FFFFFF;
+}
+.footerBannerTop i {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 25px;
+  padding: 0 20px 0 20px;
+  font-weight: unset;
+}
+
+.footerBannerBottom {
+  padding-top: 25px;
+  font-size: 22px;
+}
+.footerBannerBottom span {
+  font-size: 24px;
+}
+.footerBannerBottom i {
+  padding: 0 10px 0 10px;
+  font-size: 24px;
+}
+
+footer {
+  height: 35px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.woocommerce table.shop_table {
+  background-color: #FFFFFF;
+  border-radius: unset;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.woocommerce button, .woocommerce .checkout-button {
+  border-radius: unset !important;
+}
+.woocommerce .checkout-button {
+  text-transform: uppercase;
+  background-color: #92009C !important;
+}
+.woocommerce .woocommerce-breadcrumb {
+  background-color: #FFFFFF;
+  color: #92009C;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 20px 20px 20px 20px;
+}
+.woocommerce .woocommerce-breadcrumb i {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px 0 10px;
+  font-size: 24px;
+}
+.woocommerce .woocommerce-breadcrumb a {
+  color: #000000;
+  text-decoration: none;
+}
+.woocommerce .woocommerce-breadcrumb a:hover {
+  text-decoration: underline;
+  color: #92009C;
+}
+
+/*# sourceMappingURL=style.css.map */
