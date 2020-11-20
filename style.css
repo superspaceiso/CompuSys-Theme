@@ -112,7 +112,8 @@ body {
 }
 
 .mainNav {
-  height: 70px;
+  width: 100%;
+  min-height: 70px;
   background-color: #92009C;
   font-size: 18px;
 }
@@ -134,14 +135,28 @@ body {
   text-decoration: none;
   margin-top: 10px;
 }
-.mainNav .thing {
-  display: none;
+
+.thing {
   position: absolute;
-  background-color: #92009C;
-  width: 500px;
+  top: 400px;
+  left: 200px;
 }
-.mainNav ul ul {
-  display: list-item;
+.thing ul {
+  height: 200px;
+  width: 800px;
+  list-style: none;
+  display: flex;
+  display: -ms-flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.thing li {
+  padding: unset;
+  background: unset;
+}
+.thing ul ul {
+  display: none;
 }
 
 .banner {
@@ -167,6 +182,66 @@ body {
 }
 .header > div:nth-child(4) {
   grid-column: col-start 10 / span 3;
+}
+
+.productInfo {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+}
+.productInfo .productImage, .productInfo .productPrice, .productInfo .productDescription, .productInfo .deliveryInfo {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+.productInfo .productImage {
+  grid-column: col-start / span 8;
+  grid-row-start: span 8;
+}
+.productInfo .productPrice {
+  grid-column: col-start 9 / span 4;
+}
+.productInfo .deliveryInfo {
+  grid-column: col-start 9 / span 4;
+  font-size: 12px;
+  font-weight: 600;
+}
+.productInfo .deliveryInfo h3 {
+  margin: unset;
+  font-size: 24px;
+  font-weight: 600;
+}
+.productInfo .deliveryInfo i {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 40px;
+  font-weight: unset;
+  color: #92009C;
+}
+.productInfo .deliveryInfo table {
+  border-spacing: unset;
+}
+.productInfo .deliveryInfo table td {
+  padding: 20px 0 20px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.productInfo .deliveryInfo table td:nth-child(1) {
+  padding-right: 10px;
+}
+.productInfo .deliveryInfo table td:nth-child(2) {
+  padding-left: 10px;
+}
+.productInfo .deliveryInfo table tr:last-child td {
+  padding-bottom: unset;
+  border-bottom: unset;
+}
+.productInfo .deliveryInfo .deliveryTextSml {
+  font-size: 10px;
+  font-weight: 300;
+}
+.productInfo .productDescription {
+  grid-column: col-start / span 12;
 }
 
 .footerBannerWrapper {

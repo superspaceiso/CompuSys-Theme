@@ -135,7 +135,8 @@ body{
 }
 
 .mainNav{
-  height: 70px;
+  width: 100%;
+  min-height: 70px;
   background-color: $compuSysPurple;
   font-size: 18px;
 
@@ -161,27 +162,40 @@ body{
     margin-top: 10px;
   }
 
-  .thing{
-    display: none;
-    position: absolute;
-    background-color: $compuSysPurple;
-    width: 500px;
+}
+
+.thing {
+  position: absolute;
+  top: 400px;
+  left: 200px;
+
+  ul {
+    height: 200px;
+    width: 800px;
+    list-style: none;
+    display: flex;
+    display: -ms-flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    flex-direction: column;
+
+    }
+
+  li {
+    padding: unset;
+    background: unset;
+
+    &:hover {
+
+    }
   }
 
   ul ul{
-    display: list-item;
-
-    & li{
-
-    }
-  }
-
-  ul ul ul{
-    & li a{
-    }
+    display: none;
   }
 
 }
+
 
 .banner{
   height: 450px;
@@ -210,8 +224,83 @@ body{
   & > div:nth-child(4){
     grid-column: col-start 10 / span 3;
   }
+}
+
+.productInfo{
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+
+  .productImage, .productPrice, .productDescription, .deliveryInfo{
+    background-color: #FFFFFF;
+    border: 1px solid $borderColour;
+    padding: 20px;
+  }
+
+  .productImage{
+    grid-column: col-start / span 8;
+    grid-row-start: span 8;
+  }
+
+  .productPrice{
+    grid-column: col-start 9 / span 4;
+  }
+
+  .deliveryInfo{
+    grid-column: col-start 9 / span 4;
+    font-size: 12px;
+    font-weight: 600;
+
+    h3{
+      margin: unset;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    i{
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 40px;
+      font-weight: unset;
+      color: $compuSysPurple;
+    }
+
+    table{
+      border-spacing: unset;
+
+      td{
+        padding: 20px 0 20px 0;
+        border-bottom: 1px solid $borderColour;
+
+        &:nth-child(1){
+          padding-right: 10px;
+        }
+
+        &:nth-child(2){
+          padding-left: 10px;
+        }
+      }
+
+
+      tr:last-child td{
+        padding-bottom: unset;
+        border-bottom: unset;
+      }
+    }
+
+    .deliveryTextSml{
+      font-size: 10px;
+      font-weight: 300;
+    }
+  }
+
+  .productDescription{
+    grid-column: col-start / span 12;
+  }
 
 }
+
 
 .footerBannerWrapper{
   display: grid;

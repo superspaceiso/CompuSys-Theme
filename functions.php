@@ -83,9 +83,11 @@ class StarterSite extends Timber\Site {
 	public function add_to_context( $context ) {
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
-		$context['basket_total'] = WC()->cart->cart_contents_total;
-		$context['basket_currency'] = get_woocommerce_currency_symbol();
-		$context['basket_count'] = WC()->cart->get_cart_contents_count();
+		$context['basket'] = [
+			"total" => WC()->cart->cart_contents_total,
+			"currency" => get_woocommerce_currency_symbol(),
+			"itemCount" => WC()->cart->get_cart_contents_count(),
+		];
 		return $context;
 	}
 

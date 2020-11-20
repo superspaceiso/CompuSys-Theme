@@ -4,21 +4,37 @@
     {% do action('woocommerce_before_main_content') %}
     {% do action('woocommerce_before_single_product') %}
 
-    <article itemscope itemtype="http://schema.org/Product" class="single-product-details {{ post.class }}">
-
-        <div class="entry-images">
+    <div itemscope itemtype="http://schema.org/Product" class="productInfo">
+        <div class="productImage">
+            <h1>Product Name</h1>
             <img src="{{ post.thumbnail.src('shop_single') }}" />
+            {% do action('woocommerce_single_product_summary') %}
         </div>
-
-        <div class="summary entry-summary">
-{#            {% do action('woocommerce_single_product_summary') %}#}
+        <div class="productPrice">
+            g
         </div>
-
-{#        {% do action('woocommerce_after_single_product_summary') %}#}
-
-{#        <meta itemprop="url" content="{{ post.link }}" />#}
-
-    </article>
+        <div class="deliveryInfo">
+            <h3>Delivery Options</h3>
+            <table>
+                <tr>
+                    <td><i class="fas fa-truck"></i></td>
+                    <td>By courier to your specified address.<br><span class="deliveryTextSml">Receive SMS with one-hour delivery window.<br> Weekend, timed and European delivery options are available at checkout.</span></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-store"></i></td>
+                    <td>Courier Dropoff<br><span class="deliveryTextSml">Pickup from local convenience store.</span></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-warehouse"></i></td>
+                    <td>Collect Instore<br><span class="deliveryTextSml">Collect from our store.</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="productDescription">
+            <h2>Product Description</h2>
+            {% do action('woocommerce_after_single_product_summary') %}
+        </div>
+    </div>
 
     {% do action('woocommerce_after_single_product') %}
 {% endblock  %}
