@@ -43,6 +43,7 @@ body{
     padding: 10px 10px 10px 10px;
     border: 1px solid $compuSysPurple;
     background-color: #FFFFFF;
+    font-family: inherit;
   }
 
   input[type="submit"]{
@@ -130,6 +131,11 @@ body{
     color: white;
     text-transform: uppercase;
     font-weight: 500;
+
+    &:hover{
+      background: linear-gradient(0deg, rgba(0,143,68,1) 0%, rgba(1,164,79,1) 100%);
+    }
+
   }
 
 }
@@ -232,19 +238,88 @@ body{
   grid-template-rows: auto;
   gap: 20px;
 
-  .productImage, .productPrice, .productDescription, .deliveryInfo{
+  .productPanel, .productPrice, .productDescription, .deliveryInfo{
     background-color: #FFFFFF;
     border: 1px solid $borderColour;
     padding: 20px;
   }
 
-  .productImage{
+  .productPanel{
     grid-column: col-start / span 8;
     grid-row-start: span 8;
+
+    h1{
+      margin: unset;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
   }
 
   .productPrice{
     grid-column: col-start 9 / span 4;
+
+    .price{
+      text-align: center;
+      margin: unset;
+
+      .amount{
+        font-size: 60px;
+        font-weight: bold;
+        color: $compuSysPurple;
+      }
+
+      .woocommerce-price-suffix{
+        font-size: 17px;
+        font-weight: bold;
+      }
+
+      }
+
+    .stock{
+      text-align: center;
+      text-transform: capitalize;
+      font-size: 20px;
+    }
+
+    .cart{
+      width: 100%;
+      .quantity{
+
+        input[type="number"]{
+          float: left;
+          height: 45px;
+          width: calc(50% - 2px);
+          border: solid #D4D4D4;
+          border-width: 1px 0 1px 1px;
+          padding: unset;
+          font-size: 16px;
+          font-family: inherit;
+          font-weight: 500;
+          color: #000000;
+        }
+      }
+
+      .single_add_to_cart_button[type="submit"]{
+        float: left;
+        height: 47px;
+        width: calc(50% - 2px);
+        text-transform: uppercase;
+        background-color: #01A44F;
+        border: solid #D4D4D4;
+        border-width: 1px 1px 1px 0;
+        padding: unset;
+        font-size: 16px;
+        font-family: inherit;
+        font-weight: 500;
+
+        &:hover{
+          background: linear-gradient(0deg, rgba(0,143,68,1) 0%, rgba(1,164,79,1) 100%);
+        }
+
+      }
+    }
+
   }
 
   .deliveryInfo{
@@ -297,10 +372,12 @@ body{
 
   .productDescription{
     grid-column: col-start / span 12;
+
+    h2{
+      margin: unset;
+    }
   }
-
 }
-
 
 .footerBannerWrapper{
   display: grid;
@@ -353,6 +430,96 @@ footer{
   text-align: center;
   font-size: 12px;
 }
+
+.productImage{
+  height: 500px;
+  margin: 20px 0 20px 0;
+  border: 1px solid $borderColour;
+
+  img{
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+  }
+
+}
+.imageSelector{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 20px;
+  grid-template-areas:
+    ". . . .";
+
+  & > div{
+    border: 1px solid $borderColour;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+      display: block;
+
+      &:hover{
+        display: block;
+        opacity: 95%;
+      }
+    }
+  }
+}
+
+.before-shop-loop{
+  display: grid;
+  grid-template-columns: repeat(2, [col-start] 1fr);
+  grid-template-rows: auto;
+  background-color: #FFFFFF;
+  border: 1px solid $borderColour;
+  padding: 20px;
+
+  h1{
+    margin: unset;
+  }
+
+  .woocommerce-ordering{
+    margin: unset;
+
+    .orderby{
+      height: 45px;
+      padding: 10px;
+      font-family: inherit;
+
+      option{
+        background-color: #FFFFFF;
+      }
+
+      &:hover{
+        background: $whiteHover;
+      }
+
+    }
+  }
+}
+
+.productList{
+  display: grid;
+  grid-template-columns: repeat(4, [col-start] 1fr);
+  grid-template-rows: auto;
+  background-color: #FFFFFF;
+  border: 1px solid $borderColour;
+  padding: 20px;
+  margin-top: 20px;
+
+  h2{
+    margin: unset;
+
+    a{
+      text-decoration: none;
+      color: #000000;
+    }
+  }
+}
+
 
 //WooCommerce Overrides
 

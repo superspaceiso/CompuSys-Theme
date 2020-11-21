@@ -181,11 +181,13 @@ function wp_enqueue_woocommerce_style(){
 }
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_woocommerce_style' );
 
-add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_delimiter' );
-function wcc_change_breadcrumb_delimiter( $defaults ) {
-	// Change the breadcrumb delimeter from '/' to '>'
+add_filter( 'woocommerce_breadcrumb_defaults', 'change_breadcrumb_delimiter' );
+
+function change_breadcrumb_delimiter( $defaults ) {
 	$defaults['delimiter'] = '<i class="fas fa-angle-right"></i>';
 	return $defaults;
 }
+
+
 
 new StarterSite();

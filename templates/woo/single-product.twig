@@ -4,14 +4,14 @@
     {% do action('woocommerce_before_main_content') %}
     {% do action('woocommerce_before_single_product') %}
 
-    <div itemscope itemtype="http://schema.org/Product" class="productInfo">
-        <div class="productImage">
-            <h1>Product Name</h1>
-            <img src="{{ post.thumbnail.src('shop_single') }}" />
-            {% do action('woocommerce_single_product_summary') %}
+    <div class="productInfo">
+        <div temscope itemtype="http://schema.org/Product" class="productPanel">
+            {{ function('woocommerce_template_single_title') }}
+            {% include 'partial/productGallery.twig' %}
         </div>
         <div class="productPrice">
-            g
+            {{ function('woocommerce_template_single_price') }}
+            {{ function('woocommerce_template_single_add_to_cart') }}
         </div>
         <div class="deliveryInfo">
             <h3>Delivery Options</h3>
@@ -32,7 +32,7 @@
         </div>
         <div class="productDescription">
             <h2>Product Description</h2>
-            {% do action('woocommerce_after_single_product_summary') %}
+            <p>{{ post.post_content }}</p>
         </div>
     </div>
 

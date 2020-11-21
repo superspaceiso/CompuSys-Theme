@@ -1,0 +1,11 @@
+<div class="productGallery">
+    <div class="productImage">
+        <img src="{{ Image(post._thumbnail_id).src }}" alt="">
+    </div>
+    <div class="imageSelector">
+    {% set galleryImages = post._product_image_gallery|split(',') %}
+    {% for galleryImage in galleryImages %}
+        <div><img src="{{ Image(galleryImage).src }}" alt=""></div>
+    {% endfor %}
+    </div>
+</div>
