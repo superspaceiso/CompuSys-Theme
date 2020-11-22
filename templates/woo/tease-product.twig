@@ -7,7 +7,7 @@
             <div class="productPreviewImage {% if not post.thumbnail %}placeholder{% endif %}">
                 <a href="{{ post.link }}">
                     {% if post.thumbnail %}
-                        <img src="{{ post.thumbnail.src|resize(post_thumb_size[0], post_thumb_size[1]) }}" />
+                        <a href="{{ post.link }}"><img src="{{ post.thumbnail.src|resize(post_thumb_size[0], post_thumb_size[1]) }}"></a>
                     {% else %}
                         <span class="thumb-placeholder"><i class="icon-camera"></i></span>
                     {% endif %}
@@ -16,7 +16,7 @@
         {% endif %}
 
         <div>
-            {% do action('woocommerce_before_shop_loop_item_title') %}
+            <a href="{{ post.link }}">{% do action('woocommerce_before_shop_loop_item_title') %}</a>
         </div>
         <div>
             {% if post.title %}

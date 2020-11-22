@@ -1,0 +1,39 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div class="homePage">
+    <h1>Latest Products <a href="/feed/?post_type=product"><i class="fas fa-rss"></i></a></h1>
+    <a href="/shop">View Latest Products</a>
+    <div class="latestProducts">
+    {% for product in latestProducts %}
+        <div class="productCard">
+            <div>
+                <img src="{{ Image(product.get_image_id).src }}" alt="">
+            </div>
+            <div>
+                <h3><a href="{{ product.get_slug() }}">{{ product.get_title() }}</a></h3>
+            </div>
+            <div>
+                <span class="price">{{ currency }}{{ product.get_price() }}</span>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <h1>Latest Articles <a href="/feed/"><i class="fas fa-rss"></i></a></h1>
+    <a href="/category/articles/">View Latest Articles</a>
+    <div class="latestPosts">
+        {% for post in latestPosts %}
+            <div class="articleCard">
+                <div>
+                    <a href="{{post.get_path}}"><img src="{{ post.thumbnail.src|resize(300, 300) }}"></a>
+                </div>
+                <div>
+                    <h3><a href="{{post.link}}">{{post.title}}</a></h3>
+                    <p class="teaser">{{post.preview.length(36)}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
