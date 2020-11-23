@@ -637,7 +637,6 @@ footer {
   font-size: 16px;
   text-align: center;
   width: 200px;
-  /*      height: 25px;*/
   padding: 10px 0 10px 0;
   background-color: #01A44F;
   color: white;
@@ -772,32 +771,35 @@ footer {
   height: auto;
 }
 .latestPosts .articleCard > div:nth-child(2) {
+  display: none;
+}
+.latestPosts .articleCard > div:nth-child(3) {
   float: left;
   width: calc(100% - calc(40px + 195px));
   padding: 20px;
 }
-.latestPosts .articleCard > div:nth-child(2) h3 {
+.latestPosts .articleCard > div:nth-child(3) h3 {
   margin: unset;
   font-size: 16px;
   font-weight: 600;
 }
-.latestPosts .articleCard > div:nth-child(2) h3 a {
+.latestPosts .articleCard > div:nth-child(3) h3 a {
   text-decoration: none;
   color: inherit;
 }
-.latestPosts .articleCard > div:nth-child(2) h3 a:hover {
+.latestPosts .articleCard > div:nth-child(3) h3 a:hover {
   text-decoration: underline;
 }
-.latestPosts .articleCard > div:nth-child(2) .teaser {
+.latestPosts .articleCard > div:nth-child(3) .teaser {
   font-size: 14px;
   font-weight: normal;
 }
-.latestPosts .articleCard > div:nth-child(2) .read-more {
+.latestPosts .articleCard > div:nth-child(3) .read-more {
   text-decoration: none;
   color: inherit;
   font-weight: 600;
 }
-.latestPosts .articleCard > div:nth-child(2) .read-more:hover {
+.latestPosts .articleCard > div:nth-child(3) .read-more:hover {
   text-decoration: underline;
 }
 
@@ -814,7 +816,7 @@ footer {
 }
 @media only screen and (max-width: 600px) {
   .latestProducts {
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 10px;
@@ -830,6 +832,34 @@ footer {
     grid-template-rows: auto;
     gap: 10px;
     margin-bottom: 10px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .latestPosts {
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .latestPosts .articleCard {
+    max-height: unset;
+  }
+  .latestPosts .articleCard > div:nth-child(1) {
+    display: none;
+  }
+  .latestPosts .articleCard > div:nth-child(2) {
+    display: block;
+    float: left;
+    width: 100%;
+  }
+  .latestPosts .articleCard > div:nth-child(2) img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .latestPosts .articleCard > div:nth-child(3) {
+    width: calc(100% - 40px);
   }
 }
 .content {
@@ -966,11 +996,32 @@ address {
 }
 .prev i, .forward i {
   font-size: 30px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .forward {
   right: 0;
+}
+
+.expandProducts, .expandArticles {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .expandProducts, .expandArticles {
+    display: block;
+    width: calc(100% - 2px);
+    height: 46px;
+    background-color: #FFFFFF;
+    color: #92009C;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+  }
+  .expandProducts i, .expandArticles i {
+    display: block;
+    font-size: 45px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

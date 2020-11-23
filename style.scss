@@ -41,6 +41,8 @@ h1{
   color: #FFFFFF;
 }
 
+//Search Bar
+
 .searchBar{
   display: flex;
   flex-flow: row wrap;
@@ -79,6 +81,8 @@ h1{
 
 }
 
+//Account Menu
+
 .accountMenu{
   width: 100%;
   text-align: center;
@@ -116,6 +120,8 @@ h1{
     }
   }
 }
+
+//Checkout and Basket Button
 
 .basketMenu{
   width: 100%;
@@ -220,6 +226,8 @@ h1{
 }
 
 
+//Page Navigation
+
 .mainNav{
   width: 100%;
   min-height: 70px;
@@ -278,6 +286,7 @@ h1{
 
 }
 
+//Banner
 
 .banner{
   height: 450px;
@@ -291,6 +300,8 @@ h1{
 
 
 }
+
+//Page Header
 
 .header{
   min-height: 125px;
@@ -350,6 +361,8 @@ h1{
 
   }
 }
+
+//Product Page
 
 .productInfo{
   display: grid;
@@ -532,6 +545,8 @@ h1{
 
 }
 
+//Footer Banner
+
 .footerBannerWrapper{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -597,6 +612,7 @@ h1{
 
 }
 
+//Page Footer
 
 footer{
   height: 35px;
@@ -661,7 +677,6 @@ footer{
   .woocommerce-ordering{
     margin: unset;
 
-
     .orderby{
       height: 45px;
       padding: 10px;
@@ -678,7 +693,6 @@ footer{
     }
   }
 }
-
 
 @media only screen and (max-width: 600px) {
   .before-shop-loop{
@@ -709,6 +723,7 @@ footer{
   }
 }
 
+//Category Page
 
 .productList{
   display: grid;
@@ -797,7 +812,6 @@ footer{
       font-size: 16px;
       text-align: center;
       width: 200px;
-/*      height: 25px;*/
       padding: 10px 0 10px 0;
       background-color: #01A44F;
       color: white;
@@ -853,17 +867,12 @@ footer{
     & > div:nth-child(4){
       grid-column: col-start / span 4;
     }
-
-
   }
-
-
-
 }
 
+//Frontpage
 
 .homePage{
-
   .latest{
     display: inline-block;
     color: $compuSysPurple;
@@ -872,10 +881,8 @@ footer{
   }
 
   h1{
-
     margin-bottom: 10px;
     margin-top: 20px;
-
     a{
       color: inherit;
       &:hover{
@@ -886,9 +893,7 @@ footer{
     i{
       padding-left: 10px;
     }
-
   }
-
 }
 
 .latestProducts{
@@ -975,6 +980,10 @@ footer{
     }
 
     & > div:nth-child(2){
+      display: none;
+    }
+
+    & > div:nth-child(3){
       float: left;
       width: calc(100% - calc(40px + 195px));
       padding: 20px;
@@ -1030,18 +1039,18 @@ footer{
 
 @media only screen and (max-width: 600px) {
   .latestProducts{
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 10px;
 
     .productCard{
       width: calc(100% - 42px);
+
     }
 
   }
 }
-
 
 @media only screen and (max-width: 1200px) {
   .latestPosts{
@@ -1053,7 +1062,41 @@ footer{
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .latestPosts{
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin-bottom: 10px;
 
+    .articleCard{
+      max-height: unset;
+
+      & > div:nth-child(1){
+        display: none;
+      }
+
+      & > div:nth-child(2){
+        display: block;
+        float: left;
+        width: 100%;
+
+        img{
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      & > div:nth-child(3){
+        width: calc(100% - 40px);
+      }
+    }
+  }
+}
+
+//Blog Page
 
 .content{
   padding: 20px;
@@ -1160,7 +1203,6 @@ footer{
 
 }
 
-
 .checkout{
   padding: 20px;
   background-color: #FFFFFF;
@@ -1173,7 +1215,6 @@ footer{
   }
 
 }
-
 
 @media only screen and (max-width: 600px) {
   .checkout{
@@ -1201,6 +1242,8 @@ address{
   border-radius: unset;
 }
 
+//Gallery Navigation
+
 .prev, .forward{
   position: absolute;
   display: flex;
@@ -1225,11 +1268,35 @@ address{
 
   i{
     font-size: 30px;
-    color: white;
+    color: #FFFFFF;
   }
 
 }
 
 .forward{
   right: 0;
+}
+
+//Frontpage Expand Buttons
+
+.expandProducts, .expandArticles{
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .expandProducts, .expandArticles{
+    display: block;
+    width: calc(100% - 2px);
+    height: 46px;
+    background-color: #FFFFFF;
+    color: $compuSysPurple;
+    text-align: center;
+    border: 1px solid $borderColour;
+    margin-bottom: 10px;
+
+    i{
+      display: block;
+      font-size: 45px;
+    }
+  }
 }

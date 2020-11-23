@@ -4,6 +4,7 @@
 <div class="homePage">
     <h1>Latest Products <a href="/feed/?post_type=product"><i class="fas fa-rss"></i></a></h1>
     <a href="/shop" class="latest">View Latest Products</a>
+    <a class="expandProducts"><i class="fas fa-angle-down"></i></a>
     <div class="latestProducts">
     {% for product in latestProducts %}
         <div class="productCard">
@@ -22,11 +23,15 @@
 
     <h1>Latest Articles <a href="/feed/"><i class="fas fa-rss"></i></a></h1>
     <a href="/category/articles/" class="latest">View Latest Articles</a>
+    <a class="expandArticles"><i class="fas fa-angle-down"></i></a>
     <div class="latestPosts">
         {% for post in latestPosts %}
             <div class="articleCard">
                 <div>
                     <a href="{{post.get_path}}"><img src="{{ post.thumbnail.src|resize(300, 300) }}"></a>
+                </div>
+                <div>
+                    <a href="{{post.get_path}}"><img src="{{ post.thumbnail.src|resize(600, 200) }}"></a>
                 </div>
                 <div>
                     <h3><a href="{{post.link}}">{{post.title}}</a></h3>
