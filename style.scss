@@ -18,7 +18,6 @@ body{
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
-
 }
 
 h1{
@@ -28,6 +27,13 @@ h1{
 .container{
   max-width: 1275px;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container{
+    max-width: calc(1275px - 20px);
+    padding: 0 10px 0 10px;
+  }
 }
 
 .banner, footer{
@@ -96,6 +102,19 @@ h1{
     background: $whiteHover;
   }
 
+}
+
+@media only screen and (max-width: 600px) {
+  .accountMenu {
+    i{
+      padding: unset;
+      font-size: 20px;
+    }
+
+    span{
+      display: none;
+    }
+  }
 }
 
 .basketMenu{
@@ -175,6 +194,32 @@ h1{
 
 }
 
+@media only screen and (max-width: 600px) {
+  .basketMenu {
+
+    a:nth-child(1){
+      width: 100%;
+
+      & > div:nth-child(1){
+        float: unset;
+        padding-left: unset;
+        width: 100%;
+        text-align: center;
+      }
+
+      & > div:nth-child(2){
+        display: none;
+      }
+
+    }
+
+    a:nth-child(2){
+      display: none;
+    }
+  }
+}
+
+
 .mainNav{
   width: 100%;
   min-height: 70px;
@@ -182,15 +227,16 @@ h1{
   font-size: 18px;
 
   ul{
-    display: inline-flex;
     list-style: none;
     margin: unset;
     padding: unset;
   }
 
   li{
-    height: 50px;
-    padding: 20px 20px 0 20px;
+    display: inline-flex;
+    margin: unset;
+    height: 47px;
+    padding: 23px 20px 0 20px;
   }
 
   li:hover{
@@ -200,29 +246,24 @@ h1{
   a{
     color: #FFFFFF;
     text-decoration: none;
-    margin-top: 10px;
   }
 
 }
 
 .thing {
-  position: absolute;
-  top: 400px;
-  left: 200px;
-
+  display: none;
   ul {
-    height: 200px;
-    width: 800px;
     list-style: none;
+    }
+
+  li {
+    width: 400px;
     display: flex;
     display: -ms-flex;
     flex-flow: row wrap;
     justify-content: space-around;
     flex-direction: column;
 
-    }
-
-  li {
     padding: unset;
     background: unset;
 
@@ -242,8 +283,17 @@ h1{
   height: 450px;
 }
 
+@media only screen and (max-width: 1200px) {
+
+  .banner{
+    display: none;
+  }
+
+
+}
+
 .header{
-  height: 125px;
+  min-height: 125px;
   padding-top: 75px;
   display: grid;
   grid-template-columns: repeat(12, [col-start] 1fr);
@@ -252,6 +302,7 @@ h1{
 
   & > div:nth-child(1){
     grid-column: col-start / span 3;
+
   }
 
   & > div:nth-child(2){
@@ -264,6 +315,39 @@ h1{
 
   & > div:nth-child(4){
     grid-column: col-start 10 / span 3;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .header{
+    display: grid;
+    grid-template-columns: repeat(4, [col-start] 1fr);
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    & > div:nth-child(1){
+      grid-column: col-start / span 4;
+
+      picture img{
+        display: block;
+        margin: 0 auto;
+      }
+
+    }
+
+    & > div:nth-child(2){
+      grid-column: col-start / span 4;
+    }
+
+    & > div:nth-child(3){
+      grid-column: col-start / span 2;
+    }
+
+    & > div:nth-child(4){
+      grid-column: col-start 3 / span 2;
+    }
+
   }
 }
 
@@ -299,7 +383,7 @@ h1{
       margin: unset;
 
       .amount{
-        font-size: 60px;
+        font-size: 45px;
         font-weight: bold;
         color: $compuSysPurple;
       }
@@ -378,6 +462,7 @@ h1{
 
     table{
       border-spacing: unset;
+      width: 100%;
 
       td{
         padding: 20px 0 20px 0;
@@ -417,15 +502,44 @@ h1{
   }
 }
 
+
+@media only screen and (max-width: 800px) {
+
+  .productInfo{
+    display: grid;
+    grid-template-columns: repeat(4, [col-start] 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+
+    .productPanel{
+      grid-column: col-start / span 4;
+    }
+
+    .productPrice{
+      grid-column: col-start / span 4;
+    }
+
+    .deliveryInfo{
+      grid-column: col-start / span 4;
+    }
+
+    .productDescription{
+      grid-column: col-start / span 4;
+      margin-bottom: 10px;
+    }
+
+  }
+
+}
+
 .footerBannerWrapper{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
 }
 
-
 .footerBanner{
-  height: 200px;
+  min-height: 200px;
   background-color: $compuSysPurple;
   color: #FFFFFF;
   font-size: 18px;
@@ -463,6 +577,27 @@ h1{
 
 }
 
+@media only screen and (max-width: 800px) {
+
+  .footerBannerWrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .footerBannerTop{
+    &:nth-child(1){
+      border-bottom: unset;
+    }
+  }
+
+  .footerBannerBottom:last-child{
+      padding-bottom: 25px;
+  }
+
+}
+
+
 footer{
   height: 35px;
   padding-top: 15px;
@@ -471,15 +606,15 @@ footer{
 }
 
 .productImage{
-  height: 500px;
+  position: relative;
   margin: 20px 0 20px 0;
   border: 1px solid $borderColour;
 
   img{
     display: block;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
-    height: 100%;
-    width: auto;
   }
 
 }
@@ -515,6 +650,7 @@ footer{
   background-color: #FFFFFF;
   border: 1px solid $borderColour;
   padding: 20px;
+  margin-bottom: 20px;
 
   h1{
     margin: unset;
@@ -524,6 +660,7 @@ footer{
 
   .woocommerce-ordering{
     margin: unset;
+
 
     .orderby{
       height: 45px;
@@ -542,6 +679,37 @@ footer{
   }
 }
 
+
+@media only screen and (max-width: 600px) {
+  .before-shop-loop{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    text-align: center;
+
+    & > div:nth-child(2){
+      width: 100%;
+
+      .woocommerce-ordering{
+        margin: unset;
+        width:  100%;
+
+        .orderby{
+          display: inline-block;
+
+          height: 45px;
+          padding: 10px;
+          font-family: inherit;
+
+        }
+      }
+
+    }
+
+  }
+}
+
+
 .productList{
   display: grid;
   grid-template-columns: repeat(12, [col-start] 1fr);
@@ -551,6 +719,15 @@ footer{
   border: 1px solid $borderColour;
   padding: 20px;
   margin-top: 20px;
+
+  &:first-child{
+    margin-top: unset;
+  }
+
+  img{
+    height: auto;
+    max-width: 100%
+  }
 
   &:last-child{
     margin-bottom: 20px;
@@ -643,9 +820,61 @@ footer{
 
 }
 
+@media only screen and (max-width: 600px) {
+
+  .productList{
+    display: grid;
+    grid-template-columns: repeat(4, [col-start] 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+
+    &:last-child{
+      margin-bottom: 10px;
+    }
+
+    & > div:nth-child(1){
+      grid-column: col-start / span 4;
+
+      img{
+        display: block;
+        margin: 0 auto;
+      }
+
+    }
+
+    & > div:nth-child(2){
+      grid-column: col-start / span 4;
+    }
+
+    & > div:nth-child(3){
+      grid-column: col-start / span 4;
+    }
+
+    & > div:nth-child(4){
+      grid-column: col-start / span 4;
+    }
+
+
+  }
+
+
+
+}
+
+
 .homePage{
 
+  .latest{
+    display: inline-block;
+    color: $compuSysPurple;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
   h1{
+
+    margin-bottom: 10px;
+    margin-top: 20px;
 
     a{
       color: inherit;
@@ -673,20 +902,31 @@ footer{
     border: 1px solid $borderColour;
     padding: 20px;
     text-align: center;
-    min-height: 430px;
-    min-width: 304px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
 
     & > div:nth-child(1){
+      min-height: 261px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       img{
+        display: block;
         width: 100%;
         height: auto;
+        vertical-align: middle;
       }
     }
 
     & > div:nth-child(2){
-      min-height: 120px;
+      min-height: 100px;
     }
 
+    & > div:nth-child(3){
+      height: 25px;
+    }
 
     h3{
       margin: unset;
@@ -715,6 +955,7 @@ footer{
   grid-template-columns: repeat(2, [col-start] 1fr);
   grid-template-rows: auto;
   gap: 20px;
+  margin-bottom: 20px;
 
   .articleCard{
     background-color: #FFFFFF;
@@ -772,6 +1013,47 @@ footer{
   }
 
 }
+
+@media only screen and (max-width: 1000px) {
+  .latestProducts{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+
+    .productCard{
+      width: calc(100% - 42px);
+    }
+
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .latestProducts{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+
+    .productCard{
+      width: calc(100% - 42px);
+    }
+
+  }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .latestPosts{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+
 
 .content{
   padding: 20px;
@@ -864,10 +1146,26 @@ footer{
 
 }
 
+
+@media only screen and (max-width: 800px) {
+
+  .woocommerce {
+
+    .woocommerce-breadcrumb {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+  }
+
+}
+
+
 .checkout{
   padding: 20px;
   background-color: #FFFFFF;
   border: 1px solid $borderColour;
+  margin-bottom: 20px;
 
   .input-text{
     height: 45px;
@@ -875,6 +1173,14 @@ footer{
   }
 
 }
+
+
+@media only screen and (max-width: 600px) {
+  .checkout{
+    margin-bottom: 10px;
+  }
+}
+
 
 #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment{
   background-color: #FFFFFF;
@@ -893,4 +1199,37 @@ address{
   background-color: #FFFFFF;
   border: 1px solid $borderColour;
   border-radius: unset;
+}
+
+.prev, .forward{
+  position: absolute;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #000000;
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  mix-blend-mode: multiply;
+  opacity: 50%;
+  transition: 500ms linear;
+  z-index: 1;
+  top: 50%;
+
+  &:hover{
+    opacity: 100%;
+  }
+
+  i{
+    font-size: 30px;
+    color: white;
+  }
+
+}
+
+.forward{
+  right: 0;
 }

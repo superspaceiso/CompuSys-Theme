@@ -3,7 +3,7 @@
 {% block content %}
 <div class="homePage">
     <h1>Latest Products <a href="/feed/?post_type=product"><i class="fas fa-rss"></i></a></h1>
-    <a href="/shop">View Latest Products</a>
+    <a href="/shop" class="latest">View Latest Products</a>
     <div class="latestProducts">
     {% for product in latestProducts %}
         <div class="productCard">
@@ -11,7 +11,7 @@
                 <img src="{{ Image(product.get_image_id).src }}" alt="">
             </div>
             <div>
-                <h3><a href="{{ product.get_slug() }}">{{ product.get_title() }}</a></h3>
+                <h3><a href="/product/{{ product.get_slug() }}">{{ product.get_title() }}</a></h3>
             </div>
             <div>
                 <span class="price">{{ currency }}{{ product.get_price() }}</span>
@@ -21,7 +21,7 @@
     </div>
 
     <h1>Latest Articles <a href="/feed/"><i class="fas fa-rss"></i></a></h1>
-    <a href="/category/articles/">View Latest Articles</a>
+    <a href="/category/articles/" class="latest">View Latest Articles</a>
     <div class="latestPosts">
         {% for post in latestPosts %}
             <div class="articleCard">

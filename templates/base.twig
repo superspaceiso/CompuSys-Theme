@@ -11,10 +11,12 @@
 			<div class="container">
 				<div class="header">
 					<div>
-						<picture>
-							<source type="image/svg+xml" srcset="{{ site.theme.link }}/static/img/svg/logo.svg">
-							<img src="{{ site.theme.link }}/static/img/png/logo.png" alt="CompuSys">
-						</picture>
+						<a href="/">
+							<picture>
+								<source type="image/svg+xml" srcset="{{ site.theme.link }}/static/img/svg/logo.svg">
+								<img src="{{ site.theme.link }}/static/img/png/logo.png" alt="CompuSys">
+							</picture>
+						</a>
 					</div>
 					<div>{% include "partial/searchbar.twig" %}</div>
 					<div>{% include "partial/accountMenu.twig" %}</div>

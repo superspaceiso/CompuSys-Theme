@@ -1,6 +1,7 @@
 <div class="searchBar">
-    <form>
+    <form role="search" method="get" action="{{site.link}}">
         <input type="text" value="{{ function('get_search_query') }}" name="s">
         <input type="submit" value="Search">
+        <input type="hidden" name="post_type" value="product" />
     </form>
 </div>
