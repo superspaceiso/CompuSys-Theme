@@ -179,12 +179,12 @@ h1 {
   }
 }
 .mainNav {
-  width: 100%;
   min-height: 70px;
   background-color: #92009C;
   font-size: 18px;
 }
 .mainNav ul {
+  position: relative;
   list-style: none;
   margin: unset;
   padding: unset;
@@ -192,8 +192,6 @@ h1 {
 .mainNav li {
   display: inline-flex;
   margin: unset;
-  height: 47px;
-  padding: 23px 20px 0 20px;
 }
 .mainNav li:hover {
   background: linear-gradient(0deg, #760080 0%, #92009c 100%);
@@ -201,28 +199,41 @@ h1 {
 .mainNav a {
   color: #FFFFFF;
   text-decoration: none;
+  height: 47px;
+  padding: 23px 20px 0 20px;
 }
-
-.thing {
-  display: none;
-}
-.thing ul {
-  list-style: none;
-}
-.thing li {
-  width: 400px;
-  display: flex;
-  display: -ms-flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  flex-direction: column;
-  padding: unset;
-  background: unset;
-}
-.thing ul ul {
+.mainNav ul ul {
   display: none;
 }
 
+@media only screen and (max-width: 1200px) {
+  .mainNav {
+    width: 100%;
+    min-height: 70px;
+    background-color: #92009C;
+    font-size: 18px;
+  }
+  .mainNav ul {
+    list-style: none;
+    padding: 10px 0 10px 0;
+  }
+  .mainNav li {
+    display: list-item;
+    height: 47px;
+    padding: 10px 10px 0 10px;
+    background-color: #FFFFFF;
+    margin-top: 10px;
+  }
+  .mainNav li:first-child {
+    margin-top: unset;
+  }
+  .mainNav li:hover {
+    background: unset;
+  }
+  .mainNav a {
+    color: #92009C;
+  }
+}
 .banner {
   height: 450px;
 }
@@ -393,10 +404,22 @@ h1 {
   grid-column: col-start / span 12;
   margin-bottom: 20px;
 }
-.productInfo .productDescription h2 {
+.productInfo .productDescription .descriptionHeader {
+  display: grid;
+  grid-template-columns: 80fr 20fr;
+  grid-template-rows: auto;
+}
+.productInfo .productDescription .descriptionHeader > div:nth-child(1) h2 {
   margin: unset;
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 24px;
+}
+.productInfo .productDescription .descriptionHeader > div:nth-child(2) {
+  text-align: right;
+}
+.productInfo .productDescription .descriptionHeader > div:nth-child(2) i {
+  display: block;
+  font-size: 35px;
+  color: #92009C;
 }
 
 @media only screen and (max-width: 800px) {
@@ -418,6 +441,9 @@ h1 {
   .productInfo .productDescription {
     grid-column: col-start / span 4;
     margin-bottom: 10px;
+  }
+  .productInfo .productDescription .descriptionText {
+    display: none;
   }
 }
 .footerBannerWrapper {
@@ -973,7 +999,7 @@ address {
   border-radius: unset;
 }
 
-.prev, .forward {
+.prev, .forward, .carouselPrev, .carouselForward {
   position: absolute;
   display: flex;
   width: 30px;
@@ -989,18 +1015,50 @@ address {
   opacity: 50%;
   transition: 500ms linear;
   z-index: 1;
-  top: 50%;
+  top: calc(50% - 25px);
 }
-.prev:hover, .forward:hover {
+.prev:hover, .forward:hover, .carouselPrev:hover, .carouselForward:hover {
   opacity: 100%;
 }
-.prev i, .forward i {
+.prev i, .forward i, .carouselPrev i, .carouselForward i {
   font-size: 30px;
   color: #FFFFFF;
 }
 
-.forward {
+.forward, .carouselForward {
   right: 0;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background-color: white;
+  overflow: hidden;
+}
+.carousel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.carousel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, black 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 70%, black 100%);
+}
+
+.carouselPrev, .carouselForward {
+  background-color: #FFFFFF;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+.carouselPrev i, .carouselForward i {
+  font-size: 30px;
+  color: #000000;
 }
 
 .expandProducts, .expandArticles {

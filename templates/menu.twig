@@ -4,9 +4,22 @@
 		<li class="{{ item.classes | join(' ') }}">
 			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
 			{% if item.children %}
-			<div class="thing">
-				{% include "menu.twig" with {'items': item.children} %}
-			</div>
+				<ul>
+				{% for child in item.children %}
+					<li>
+						<a href="{{ child.link }}">{{ child.title }}</a>
+						{% if child.children %}
+							<ul>
+								{% for subchild in child.children %}
+									<li>
+										<a href="{{ subchild.link }}">{{ subchild.title }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</li>
+				{% endfor %}
+				</ul>
 			{% endif %}
 		</li>
 	{% endfor %}

@@ -229,12 +229,12 @@ h1{
 //Page Navigation
 
 .mainNav{
-  width: 100%;
   min-height: 70px;
   background-color: $compuSysPurple;
   font-size: 18px;
 
   ul{
+    position: relative;
     list-style: none;
     margin: unset;
     padding: unset;
@@ -243,8 +243,6 @@ h1{
   li{
     display: inline-flex;
     margin: unset;
-    height: 47px;
-    padding: 23px 20px 0 20px;
   }
 
   li:hover{
@@ -254,37 +252,52 @@ h1{
   a{
     color: #FFFFFF;
     text-decoration: none;
-  }
-
-}
-
-.thing {
-  display: none;
-  ul {
-    list-style: none;
-    }
-
-  li {
-    width: 400px;
-    display: flex;
-    display: -ms-flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    flex-direction: column;
-
-    padding: unset;
-    background: unset;
-
-    &:hover {
-
-    }
+    height: 47px;
+    padding: 23px 20px 0 20px;
   }
 
   ul ul{
     display: none;
   }
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .mainNav{
+    width: 100%;
+    min-height: 70px;
+    background-color: $compuSysPurple;
+    font-size: 18px;
+
+    ul{
+      list-style: none;
+      padding: 10px 0 10px 0;
+    }
+
+    li{
+      display: list-item;
+      height: 47px;
+      padding: 10px 10px 0 10px;
+      background-color: #FFFFFF;
+      margin-top: 10px;
+
+      &:first-child{
+        margin-top: unset;
+      }
+    }
+
+    li:hover{
+      background: unset;
+    }
+
+    a{
+      color: $compuSysPurple;
+    }
+
+  }
 
 }
+
 
 //Banner
 
@@ -507,42 +520,65 @@ h1{
     grid-column: col-start / span 12;
     margin-bottom: 20px;
 
-    h2{
-      margin: unset;
-      font-size: 22px;
-      font-weight: bold;
+    .descriptionHeader{
+      display: grid;
+      grid-template-columns: 80fr 20fr;
+      grid-template-rows: auto;
+
+      & > div:nth-child(1){
+        h2{
+          margin: unset;
+          font-size: 24px;
+        }
+      }
+
+      & > div:nth-child(2){
+        text-align: right;
+
+        i{
+          display: block;
+          font-size: 35px;
+          color: $compuSysPurple;
+        }
+      }
+
     }
+
   }
 }
 
 
 @media only screen and (max-width: 800px) {
 
-  .productInfo{
+  .productInfo {
     display: grid;
     grid-template-columns: repeat(4, [col-start] 1fr);
     grid-template-rows: auto;
     gap: 10px;
 
-    .productPanel{
+    .productPanel {
       grid-column: col-start / span 4;
     }
 
-    .productPrice{
+    .productPrice {
       grid-column: col-start / span 4;
     }
 
-    .deliveryInfo{
+    .deliveryInfo {
       grid-column: col-start / span 4;
     }
 
-    .productDescription{
+    .productDescription {
       grid-column: col-start / span 4;
       margin-bottom: 10px;
+
+      .descriptionText {
+        display: none;
+      }
+
     }
 
   }
-
 }
 
 //Footer Banner
@@ -1244,7 +1280,7 @@ address{
 
 //Gallery Navigation
 
-.prev, .forward{
+.prev, .forward, .carouselPrev, .carouselForward{
   position: absolute;
   display: flex;
   width: 30px;
@@ -1260,7 +1296,7 @@ address{
   opacity: 50%;
   transition: 500ms linear;
   z-index: 1;
-  top: 50%;
+  top: calc(50% - 25px);
 
   &:hover{
     opacity: 100%;
@@ -1273,8 +1309,45 @@ address{
 
 }
 
-.forward{
+.forward, .carouselForward{
   right: 0;
+}
+
+//Carousel
+
+.carousel{
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background-color: white;
+  overflow: hidden;
+
+  img{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(0,0,0,1) 100%);
+  }
+}
+
+.carouselPrev, .carouselForward{
+  background-color: #FFFFFF;
+  z-index: 2;
+  mix-blend-mode: screen;
+
+  i{
+    font-size: 30px;
+    color: #000000;
+  }
 }
 
 //Frontpage Expand Buttons
@@ -1300,3 +1373,4 @@ address{
     }
   }
 }
+
