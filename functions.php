@@ -88,6 +88,7 @@ class StarterSite extends Timber\Site {
 			"itemCount" => WC()->cart->get_cart_contents_count(),
 		];
 		$context['currency'] = get_woocommerce_currency_symbol();
+		$context['carouselSlides'] = Timber::get_posts(['numberposts' => 4]);
 		return $context;
 	}
 

@@ -1,5 +1,19 @@
 <div class="carousel">
     <a class="carouselPrev"><i class="fas fa-angle-left"></i></a>
     <a class="carouselForward"><i class="fas fa-angle-right"></i></a>
-    <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/communities/nvidia-communities-partner-network-737-m@2x.jpg"></div>
+    <div class="carouselIndicator">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="carouselSlides">
+    {% for slide in carouselSlides %}
+        <div class="carouselSlide">
+            <a class="carouselReadMore" href="{{slide.link}}">Find Out More</a>
+            <p class="carouselTitle">{{slide.title}}</p>
+            <img src="{{ slide.thumbnail.src|resize(1275, 450) }}" alt="">
+        </div>
+    {% endfor %}
+    </div>
 </div>
