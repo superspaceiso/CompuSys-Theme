@@ -255,9 +255,45 @@ h1{
     height: 47px;
     padding: 23px 20px 0 20px;
   }
+}
 
-  ul ul{
-    display: none;
+.subMenu{
+  display: none;
+  padding: 0 20px 20px 20px;
+  font-size: 16px;
+
+  a{
+    color: #FFFFFF;
+    text-decoration: none;
+    height: 20px;
+    padding: 0 0 0 0;
+  }
+
+  ul{
+    column-count: 4;
+    column-gap: 10px;
+  }
+
+  li{
+    display: list-item;
+    padding: 5px;
+    margin: unset;
+    break-inside: avoid;
+  }
+
+  li:hover{
+    background: rgba(0,0,0,0.1);
+  }
+
+  .subChild{
+    display: block;
+    column-count: 1;
+  }
+
+  .subChild li{
+    display: list-item;
+    font-size: 14px;
+    padding-left: 20px;
   }
 }
 
@@ -294,6 +330,10 @@ h1{
       color: $compuSysPurple;
     }
 
+  }
+
+  .subMenu{
+    display: none;
   }
 
 }

@@ -9,9 +9,7 @@ let carouselLength = (carouselSlide.length - 1)
 
 carouselIndicator[carouselIndex].style.background = "rgba(255,255,255,1)"
 
-console.log(carouselIndicator)
-
-carouselBackward.addEventListener('click', event => {
+carouselBackward.addEventListener('click', () => {
     carouselIndex--
 
     if(carouselIndex < 0){
@@ -30,7 +28,7 @@ carouselBackward.addEventListener('click', event => {
     }
 })
 
-carouselForward.addEventListener('click', event => {
+carouselForward.addEventListener('click', () => {
     carouselIndex++
     
     if (carouselIndex > carouselLength) {

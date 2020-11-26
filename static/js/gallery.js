@@ -6,7 +6,7 @@ let images = [];
 for(let i=0;i< imageSelector.length; i++) {
     images.push(imageSelector[i].getElementsByTagName('img')[0].src)
 
-    imageSelector[i].addEventListener('click', event => {
+    imageSelector[i].addEventListener('click', () => {
         document.querySelector('.productImage').getElementsByTagName('img')[0].src = images[i]
     })
 }
@@ -16,7 +16,7 @@ const forward = document.querySelector('.forward')
 
 let index = 0
 
-previous.addEventListener('click', event => {
+previous.addEventListener('click', () => {
 
     index--
 
@@ -27,7 +27,7 @@ previous.addEventListener('click', event => {
     document.querySelector('.productImage').getElementsByTagName('img')[0].src = images[index]
 })
 
-forward.addEventListener('click', event => {
+forward.addEventListener('click', () => {
 
     index++
 
