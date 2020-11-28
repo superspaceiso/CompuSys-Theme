@@ -1,6 +1,6 @@
 const productButton = document.querySelector('.expandProducts')
 const articleButton = document.querySelector('.expandArticles')
-const mediaQuery = window.matchMedia('(max-width: 601px)')
+const mediaQueryHome = window.matchMedia('(max-width: 601px)')
 
 const articles = document.querySelector('.latestPosts')
 const products = document.querySelector('.latestProducts')
@@ -18,20 +18,20 @@ function expandProducts() {
 
 function expandArticles() {
 
-        if(articles.style.display !== "none"){
-            articles.style.display = "none"
-            articleButton.getElementsByTagName('i')[0].className = "fas fa-angle-down"
-        } else {
-            articles.style.display = "grid"
-            articleButton.getElementsByTagName('i')[0].className = "fas fa-angle-up"
-        }
+    if(articles.style.display !== "none"){
+        articles.style.display = "none"
+        articleButton.getElementsByTagName('i')[0].className = "fas fa-angle-down"
+    } else {
+        articles.style.display = "grid"
+        articleButton.getElementsByTagName('i')[0].className = "fas fa-angle-up"
+    }
 }
 
 productButton.addEventListener("click", expandProducts)
 articleButton.addEventListener("click", expandArticles)
 
-mediaQuery.addEventListener("change", () => {
-    if(mediaQuery.matches === false){
+mediaQueryHome.addEventListener("change", () => {
+    if(mediaQueryHome.matches === false){
         products.style.display = "grid"
         articles.style.display = "grid"
     } else {

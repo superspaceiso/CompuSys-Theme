@@ -14,7 +14,7 @@
 					<li>
 						<a href="{{ child.link }}">{{ child.title }}</a>
 						{% if child.children %}
-							<ul>
+							<ul class="subChild">
 								{% for subchild in child.children %}
 									<li>
 										<a href="{{ subchild.link }}">{{ subchild.title }}</a>

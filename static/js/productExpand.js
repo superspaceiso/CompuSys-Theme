@@ -1,6 +1,6 @@
 const expandButton = document.querySelector('.descriptionHeader').children[1].getElementsByTagName('a')[0]
-
 const description = document.querySelector('.descriptionText')
+const mediaQueryProduct = window.matchMedia('(max-width: 601px)')
 
 function expandDescription() {
 
@@ -16,8 +16,8 @@ function expandDescription() {
 
 expandButton.addEventListener("click", expandDescription)
 
-mediaQuery.addEventListener("change", () => {
-    if(mediaQuery.matches === false){
+mediaQueryProduct.addEventListener("change", () => {
+    if(mediaQueryProduct.matches === false){
         description.style.display = "block"
         expandButton.getElementsByTagName('i')[0].className = "fas fa-angle-up"
     } else {

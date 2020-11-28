@@ -24,6 +24,10 @@ h1{
   font-size: 24px;
 }
 
+a{
+  color: $compuSysPurple;
+}
+
 .container{
   max-width: 1275px;
   margin: 0 auto;
@@ -228,6 +232,10 @@ h1{
 
 //Page Navigation
 
+.mobileNav{
+  display: none;
+}
+
 .mainNav{
   min-height: 70px;
   background-color: $compuSysPurple;
@@ -295,46 +303,104 @@ h1{
     font-size: 14px;
     padding-left: 20px;
   }
+
 }
 
 @media only screen and (max-width: 1200px) {
 
-  .mainNav{
-    width: 100%;
-    min-height: 70px;
-    background-color: $compuSysPurple;
-    font-size: 18px;
+.mainNav{
+  display: none;
+}
 
-    ul{
-      list-style: none;
-      padding: 10px 0 10px 0;
+.mobileNav{
+  display: revert;
+  min-height: 70px;
+  background-color: $compuSysPurple;
+  font-size: 18px;
+  padding: 5px 0 5px 0;
+
+
+  a{
+    display: block;
+    color: $compuSysPurple;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    height: 40px;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .expandBtn{
+    color: #FFFFFF;
+    background-color: unset;
+    padding: unset;
+    height: 70px;
+    text-align: center;
+  }
+
+  .categoryHead, .subCategoryHead{
+    padding: 10px;
+    height: 50px;
+    width: calc(100% - 20px);
+
+    span:nth-child(1){
+      float: left;
+      width: 50%;
+      padding-top: 10px;
     }
 
-    li{
-      display: list-item;
-      height: 47px;
-      padding: 10px 10px 0 10px;
-      background-color: #FFFFFF;
-      margin-top: 10px;
-
-      &:first-child{
-        margin-top: unset;
-      }
+    span:nth-child(2){
+      text-align: right;
+      float: left;
+      width: 50%;
     }
 
-    li:hover{
-      background: unset;
+    i{
+      display: inline;
+      font-size: 40px;
+    }
+  }
+
+  .subCategory, .subCategoryChild{
+    display: none;
+  }
+
+  i{
+    display: block;
+    font-size: 60px;
+  }
+
+  .mobileNavContent{
+    display: none;
+  }
+
+  ul{
+    list-style: none;
+    margin: unset;
+    padding: unset;
+  }
+
+  li{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  li ul{
+    border: 1px solid #FFFFFF;
+  }
+
+  li li{
+    margin: unset;
+    padding: 10px 10px 10px 10px;
+
+    &:not(:first-child){
+      padding: 0 10px 10px 10px;
     }
 
     a{
-      color: $compuSysPurple;
+      margin: unset;
     }
-
   }
-
-  .subMenu{
-    display: none;
-  }
+}
 
 }
 
@@ -1265,6 +1331,11 @@ footer{
 
 }
 
+
+#coupon_code{
+  width: 150px !important;
+  height: 35px;
+}
 
 @media only screen and (max-width: 800px) {
 

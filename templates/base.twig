@@ -29,6 +29,12 @@
 				{% include "menu.twig" with {'items': menu.get_items} %}
 				</div>
 			</nav>
+			<nav class="mobileNav" role="navigation">
+				<div class="container">
+					{% include "mobilemenu.twig" with {'items': menu.get_items} %}
+				</div>
+			</nav>
+
 		{% endblock %}
 
 		<div class="banner">

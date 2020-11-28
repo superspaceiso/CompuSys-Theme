@@ -17,6 +17,10 @@ h1 {
   font-size: 24px;
 }
 
+a {
+  color: #92009C;
+}
+
 .container {
   max-width: 1275px;
   margin: 0 auto;
@@ -178,6 +182,10 @@ h1 {
     display: none;
   }
 }
+.mobileNav {
+  display: none;
+}
+
 .mainNav {
   min-height: 70px;
   background-color: #92009C;
@@ -239,34 +247,81 @@ h1 {
 
 @media only screen and (max-width: 1200px) {
   .mainNav {
-    width: 100%;
+    display: none;
+  }
+
+  .mobileNav {
+    display: revert;
     min-height: 70px;
     background-color: #92009C;
     font-size: 18px;
+    padding: 5px 0 5px 0;
   }
-  .mainNav ul {
-    list-style: none;
-    padding: 10px 0 10px 0;
-  }
-  .mainNav li {
-    display: list-item;
-    height: 47px;
-    padding: 10px 10px 0 10px;
-    background-color: #FFFFFF;
-    margin-top: 10px;
-  }
-  .mainNav li:first-child {
-    margin-top: unset;
-  }
-  .mainNav li:hover {
-    background: unset;
-  }
-  .mainNav a {
+  .mobileNav a {
+    display: block;
     color: #92009C;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    height: 40px;
+    padding: 20px 10px 10px 10px;
   }
-
-  .subMenu {
+  .mobileNav .expandBtn {
+    color: #FFFFFF;
+    background-color: unset;
+    padding: unset;
+    height: 70px;
+    text-align: center;
+  }
+  .mobileNav .categoryHead, .mobileNav .subCategoryHead {
+    padding: 10px;
+    height: 50px;
+    width: calc(100% - 20px);
+  }
+  .mobileNav .categoryHead span:nth-child(1), .mobileNav .subCategoryHead span:nth-child(1) {
+    float: left;
+    width: 50%;
+    padding-top: 10px;
+  }
+  .mobileNav .categoryHead span:nth-child(2), .mobileNav .subCategoryHead span:nth-child(2) {
+    text-align: right;
+    float: left;
+    width: 50%;
+  }
+  .mobileNav .categoryHead i, .mobileNav .subCategoryHead i {
+    display: inline;
+    font-size: 40px;
+  }
+  .mobileNav .subCategory, .mobileNav .subCategoryChild {
     display: none;
+  }
+  .mobileNav i {
+    display: block;
+    font-size: 60px;
+  }
+  .mobileNav .mobileNavContent {
+    display: none;
+  }
+  .mobileNav ul {
+    list-style: none;
+    margin: unset;
+    padding: unset;
+  }
+  .mobileNav li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .mobileNav li ul {
+    border: 1px solid #FFFFFF;
+  }
+  .mobileNav li li {
+    margin: unset;
+    padding: 10px 10px 10px 10px;
+  }
+  .mobileNav li li:not(:first-child) {
+    padding: 0 10px 10px 10px;
+  }
+  .mobileNav li li a {
+    margin: unset;
   }
 }
 .banner {
@@ -992,6 +1047,11 @@ footer {
 .woocommerce .woocommerce-breadcrumb a:hover {
   text-decoration: underline;
   color: #92009C;
+}
+
+#coupon_code {
+  width: 150px !important;
+  height: 35px;
 }
 
 @media only screen and (max-width: 800px) {

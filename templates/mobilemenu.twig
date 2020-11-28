@@ -1,0 +1,38 @@
+{% if menu %}
+    <ul>
+        <li><a href="#" class="expandBtn"><i class="fas fa-angle-down"></i></a> </li>
+    </ul>
+    <ul class="mobileNavContent">
+        {% for item in items %}
+            <li class="{{ item.classes | join(' ') }}">
+                {% if item.children %}
+                <a class="categoryHead" href="#"><span>{{ item.title }}</span><span><i class="fas fa-angle-down"></i></span></a>
+                {% else %}
+                <a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+                {% endif %}
+                {% if item.children %}
+                    <ul class="subCategory">
+                        {% for child in item.children %}
+                            <li>
+                                {% if child.children %}
+                                    <a class="subCategoryHead" href="#"><span>{{ child.title }}</span><span><i class="fas fa-angle-down"></i></span></a>
+                                {% else %}
+                                     <a target="{{ child.target }}" href="{{ child.link }}">{{ child.title }}</a>
+                                {% endif %}
+                                {% if child.children %}
+                                    <ul class="subCategoryChild">
+                                        {% for subchild in child.children %}
+                                            <li>
+                                                <a href="{{ subchild.link }}">{{ subchild.title }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

@@ -2,10 +2,9 @@
     <a class="carouselPrev"><i class="fas fa-angle-left"></i></a>
     <a class="carouselForward"><i class="fas fa-angle-right"></i></a>
     <div class="carouselIndicator">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        {% for slide in carouselSlides %}
+            <span></span>
+        {% endfor %}
     </div>
     <div class="carouselSlides">
     {% for slide in carouselSlides %}
