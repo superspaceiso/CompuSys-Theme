@@ -75,6 +75,8 @@ a {
   text-align: center;
 }
 .accountMenu i {
+  display: inline-block;
+  vertical-align: middle;
   padding-right: 20px;
   color: rgba(0, 0, 0, 0.3);
 }
@@ -174,6 +176,9 @@ a {
     padding-left: unset;
     width: 100%;
     text-align: center;
+  }
+  .basketMenu a:nth-child(1) > div:nth-child(1) i {
+    font-size: 20px;
   }
   .basketMenu a:nth-child(1) > div:nth-child(2) {
     display: none;
