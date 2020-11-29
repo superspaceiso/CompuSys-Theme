@@ -9,7 +9,7 @@
             <img src="{{ Image(post._thumbnail_id).src }}" alt="">
         {% endif %}
     </div>
-    {% if galleryImages|length > 2 %}
+    {% if galleryImages|length >= 2 %}
     <div class="imageSelector">
     {% for galleryImage in galleryImages %}
         <div><img src="{{ Image(galleryImage).src }}" alt=""></div>
