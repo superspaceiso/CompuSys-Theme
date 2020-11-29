@@ -5,7 +5,7 @@
     {% do action('woocommerce_before_single_product') %}
 
     <div class="productInfo">
-        <div temscope itemtype="http://schema.org/Product" class="productPanel">
+        <div itemscope itemtype="http://schema.org/Product" class="productPanel">
             {{ function('woocommerce_template_single_title') }}
             {% include 'partial/productGallery.twig' %}
         </div>
