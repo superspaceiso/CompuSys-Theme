@@ -1,13 +1,19 @@
 <div class="productGallery">
-    <div class="productImage">
-        <a class="prev"><i class="fas fa-angle-left"></i></a>
-        <a class="forward"><i class="fas fa-angle-right"></i></a>
-        <img src="{{ Image(post._thumbnail_id).src }}" alt="">
-    </div>
-    <div class="imageSelector">
     {% set galleryImages = post._product_image_gallery|split(',') %}
+    <div class="productImage">
+        {% if galleryImages|length < 2 %}
+            <img src="{{ Image(post._thumbnail_id).src }}" alt="">
+        {% else %}
+            <a class="prev"><i class="fas fa-angle-left"></i></a>
+            <a class="forward"><i class="fas fa-angle-right"></i></a>
+            <img src="{{ Image(post._thumbnail_id).src }}" alt="">
+        {% endif %}
+    </div>
+    {% if galleryImages|length > 2 %}
+    <div class="imageSelector">
     {% for galleryImage in galleryImages %}
         <div><img src="{{ Image(galleryImage).src }}" alt=""></div>
     {% endfor %}
     </div>
+    {% endif %}
 </div>
